@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-about-me',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-me.component.css']
 })
 export class AboutMeComponent implements OnInit {
+    // readonly ROOT_URL = "http://api.kolada.se/v2/municipality?title=karlskrona";
+    readonly ROOT_URL = "http://localhost:1337/";
+    // posts = this.http.get(this.ROOT_URL);
+    adat: any;
+    constructor(private http: HttpClient) {
+        this.http.get(this.ROOT_URL).toPromise().then(data => {
+            this.adat = data;
+        });
+    }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {
+    }
 }

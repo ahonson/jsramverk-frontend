@@ -1,0 +1,30 @@
+<h1>Login or register</h1>
+
+<div [hidden]="submitted" ng-app="myApp" ng-controller="formCtrl">
+    <form>
+        <label for="email">Din epostadress</label><br>
+        <input type="email" name="email" value="" [(ngModel)]="email" required><br>
+        <label for="password">Ditt lösenord</label><br>
+        <input type="password" name="password" value="" [(ngModel)]="password"><br>
+        <!-- <input type="submit" name="submitLogin" value="Logga in">
+        <input type="submit" name="submitRegister" value="Registrera"> -->
+        <button type="submit" class="btn btn-success" (click)="login()">Login</button>
+        <button type="submit" class="btn btn-success" (click)="register()">Register</button>
+    </form>
+</div>
+
+
+
+<!-- <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+        <label for="email">Din epostadress</label><br>
+        <input type="email" name="email" value="" ng-model="myEmail" required><br>
+        <label for="password">Ditt lösenord</label><br>
+        <input type="password" name="password" value=""><br>
+        <input type="submit" name="submitLogin" value="Logga in">
+        <input type="submit" name="submitRegister" value="Registrera">
+    </form>
+</div>
+
+<button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Submit</button> -->

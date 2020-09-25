@@ -1,9 +1,18 @@
 <div class="main-container">
     <nav>
         <a class="button" routerLink="/about" routerLinkActive="activebutton">Arons om-sida</a> |
-        <a class="button" routerLink="/reports/week/1" routerLinkActive="activebutton">Redovisningar</a>
+        <a class="button" routerLink="/reports" routerLinkActive="activebutton">Redovisningar</a>
+        <a class="button" routerLink="login" routerLinkActive="activebutton">Login</a>
     </nav>
     <router-outlet></router-outlet>
+</div>
+<div class="">
+    {{ posts | json }}
+    <p>YES</p>
+    <button (click)="getPosts()">GET ON WITH IT</button>
+    {{ posts | json }}
+    <p>VEGE</p>
+    {{ adat | json }}
 </div>
 <!-- <app-reports></app-reports>
 <app-about-me></app-about-me> -->
