@@ -9,6 +9,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
+import { CrudComponent } from './crud/crud.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LoginComponent } from './login/login.component';
     ReportsComponent,
     AboutMeComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,7 @@ import { LoginComponent } from './login/login.component';
       {path: 'about', component: AboutMeComponent},
       {path: 'reports', component: ReportsComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'crud', component: CrudComponent},
       {path: '', redirectTo: '/about', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent} // this route has to come last
     ]),

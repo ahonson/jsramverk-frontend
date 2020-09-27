@@ -1,0 +1,29 @@
+<main ng-app="">
+    <h1>Redigera och skapa rapporter</h1>
+    <p>Här kan du välja rapport:</p>
+
+    <form>
+        <select [(ngModel)]="chosenReport" name="currentReport">
+            <option value="1">Kmom01</option>
+            <option value="2">Kmom02</option>
+            <option value="3">Kmom03</option>
+            <option value="4">Kmom04</option>
+            <option value="5">Kmom05</option>
+            <option value="6">Kmom06</option>
+            <option value="10">Kmom10</option>
+        </select>
+        <button type="submit" class="btn btn-success" (click)="newReport()">Visa rapport</button>
+    </form>
+
+    <!-- <app-crud [(ngModel)]="currenttext"></app-crud> -->
+    <!-- <div>
+        {{ chosenReport }}
+        {{ mytext.report }}
+        {{ token }}
+    </div> -->
+    <form>
+        <label for="myreport"></label>
+        <textarea name="myreport" rows="35" cols="100" value="{{mytext.report}}" [(ngModel)]="currenttext">{{ mytext.report }}</textarea><br>
+        <button type="submit" class="btn btn-success" (click)="saveReport()">Spara rapport</button>
+    </form>
+</main>

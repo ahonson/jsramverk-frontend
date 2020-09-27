@@ -1,4 +1,4 @@
-<main ng-app="">
+<main ng-app="myApp" ng-controller="myCtrl">
     <h1>Login och registrering</h1>
 
     <form>
@@ -15,11 +15,14 @@
                 <label for="email">Din epostadress</label><br>
                 <input type="email" name="email" value="" [(ngModel)]="email" required><br>
                 <label for="password">Ditt lösenord</label><br>
-                <input type="password" name="password" value="" [(ngModel)]="password"><br>
+                <input type="password" name="password" value="" [(ngModel)]="password" required><br>
                 <!-- <input type="submit" name="submitLogin" value="Logga in">
                 <input type="submit" name="submitRegister" value="Registrera"> -->
                 <button type="submit" class="btn btn-success" (click)="login()">Login</button>
             </form>
+            <div class="">
+                {{email}}
+            </div>
         </div>
         <div *ngSwitchCase="'register'">
             <h2>Skapa en ny användare</h2>

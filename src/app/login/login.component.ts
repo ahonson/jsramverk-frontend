@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Login } from '../login';
+import { SharetokenService } from "../sharetoken.service";
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { Login } from '../login';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-    constructor(private http: HttpClient, private router: Router) {}
+    constructor(private http: HttpClient, private router: Router, private tokenValue: SharetokenService) {}
 
     submitted = false;
     loginPage = "login";
@@ -17,6 +18,9 @@ export class LoginComponent implements OnInit {
 
     email = "";
     password = "";
+    response: any;
+    token: string;
+    // token = "";
     readonly LOGIN_URL = "http://localhost:1337/login";
     readonly REGISTER_URL = "http://localhost:1337/register";
     adat: any;
@@ -36,9 +40,17 @@ export class LoginComponent implements OnInit {
         this.http.post(this.LOGIN_URL, {
             email: this.email,
             password: this.password
-        }).subscribe();
-
-        this.router.navigate(['about']);
+        }).subscribe(data => {
+            this.response = data;
+            this.token = this.response.data.token;
+            console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+            console.log(this.response);
+            console.log(this.token);
+            this.tokenValue.changeToken(this.token);
+            if (this.token.length > 4) {
+                this.router.navigate(['crud']);
+            }
+        });
     }
 
 
@@ -59,6 +71,12 @@ export class LoginComponent implements OnInit {
     //     console.log("U BOJ!!!!!!!!!!!!!!!!");
     // }
 
-    ngOnInit(): void {
+    // ngOnInit(): void {
+    // }
+
+    ngOnInit() {
+        this.tokenValue.currentToken.subscribe(token => this.token = token);
+        console.log("LOGIN.COMPONENT.JS, token:", this.token);
+
     }
 }
