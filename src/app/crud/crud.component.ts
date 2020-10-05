@@ -15,8 +15,9 @@ export class CrudComponent implements OnInit {
     chosenReport = "1";
     token: string;
     // token = "";
-    readonly REPORT_URL = "http://localhost:1337/reports/week/";
-    readonly SAVE_URL = "http://localhost:1337/reports";
+    // readonly REPORT_URL = "http://localhost:1337/reports/week/";
+    readonly REPORT_URL = "https://me-api.mothermarycomesto.me/reports/week/";
+    readonly SAVE_URL = "https://me-api.mothermarycomesto.me/reports";
 
     constructor(private http: HttpClient, private router: Router, private tokenValue: SharetokenService) {
         this.http.get(this.REPORT_URL + this.chosenReport).toPromise().then(data => {

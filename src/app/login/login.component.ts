@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
     response: any;
     token: string;
     // token = "";
-    readonly LOGIN_URL = "http://localhost:1337/login";
-    readonly REGISTER_URL = "http://localhost:1337/register";
+    readonly LOGIN_URL = "https://me-api.mothermarycomesto.me/login";
+    readonly REGISTER_URL = "https://me-api.mothermarycomesto.me/register";
     adat: any;
 
     onSubmit() {

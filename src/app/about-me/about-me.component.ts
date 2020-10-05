@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AboutMeComponent implements OnInit {
     // readonly ROOT_URL = "http://api.kolada.se/v2/municipality?title=karlskrona";
-    readonly ROOT_URL = "http://localhost:1337/";
+    // readonly ROOT_URL = "http://localhost:8333/";
+    readonly ROOT_URL = "https://me-api.mothermarycomesto.me/";
     // posts = this.http.get(this.ROOT_URL);
     adat: any;
     constructor(private http: HttpClient) {
