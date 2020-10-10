@@ -69,7 +69,7 @@ test.describe("MeAppNg", function() {
 
         // Check correct URL ending
         browser.getCurrentUrl().then(function(url) {
-            console.log("current URL: ", url);
+            // console.log("current URL: ", url);
             assert.ok(url.endsWith("login"));
         });
 
