@@ -52,4 +52,17 @@ test.describe("MeAppNg", function() {
 
         done();
     });
+
+    test.it("Test go to reports", function(done) {
+        browser.findElement(By.linkText("Länk till rapport 01")).then(function(element) {
+            element.click();
+        });
+
+        // Check correct URL ending
+        browser.getCurrentUrl().then(function(url) {
+            assert.ok(url.endsWith("reports#kmom01"));
+        });
+
+        done();
+    });
 });

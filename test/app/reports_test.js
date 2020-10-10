@@ -18,7 +18,7 @@ test.describe("MeAppNg", function() {
         browser = new webdriver.Builder().
             withCapabilities(webdriver.Capabilities.firefox()).build();
 
-        browser.get("http://localhost:4200/login");
+        browser.get("http://localhost:4200/reports");
         done();
     });
 
@@ -36,43 +36,28 @@ test.describe("MeAppNg", function() {
     }
 
     // Test case
-    test.it("Test login title and header", function(done) {
+    test.it("Test reports", function(done) {
         let promise = browser.getTitle();
 
         promise.then(function(title) {
             assert.equal(title, "MeAppNg");
         });
 
-        assertH1("Login och registrering");
+        assertH1("Samtliga redovisningstexter");
         done();
     });
 
-    // Simulate login failure
-    test.it("Test failing login process", function(done) {
-        browser.findElement(By.name("email")).then(function(element) {
-            element.sendKeys("joe@joe.joe");
-        });
-
-        browser.findElement(By.name("password")).then(function(element) {
-            // sending wrong password
-            element.sendKeys("pass12345");
-        });
-
-        browser.findElement(By.css("button")).then(function(element) {
+    test.it("Test changing report", function(done) {
+        browser.findElement(By.xpath("//input[@value='kmom03']")).then(function(element) {
             element.click();
         });
 
-        browser.getCurrentUrl().then(function() {
-            // assertH1("Redigera och skapa rapporter");
-            assertH1("Login och registrering");
+        // Check correct heading
+        browser.findElement(By.css("h2")).then(function(element) {
+            element.getText().then(function(text) {
+                assert.equal(text, "Redovisning för kmom03");
+            });
         });
-
-        // Check correct URL ending
-        browser.getCurrentUrl().then(function(url) {
-            console.log("current URL: ", url);
-            assert.ok(url.endsWith("login"));
-        });
-
         done();
     });
 });
