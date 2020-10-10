@@ -1,23 +1,54 @@
-<h1>Redovisning för kmom01</h1>
-<p>{{ adat_01.report }}</p>
+<h1>Samtliga redovisningstexter</h1>
 
-<!-- <p>Här är <a href="https://github.com/ahonson/jsramverk-frontend">länken</a> till projektets Github-repo.</p>
-<h2>Projektets README-fil</h2>
-<h3>MeAppNg</h3>
-<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 10.0.8.</p>
-<h3>Project setup</h3>
-<p>Run <code>npm install</code> to create a <code>node_modules</code> directory, which contains all dependencies needed to run the Angular project.</p>
-<h3>Development server</h3>
-<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files. You can also run <code>ng serve --open</code> and the project opens up automatically in your default browser.</p>
-<h2>Mina tankar om kmom01</h2>
-<p>Efter att ha läst igenom läsanvisningarna, kollat på föreläsningarna och kikat översiktligt på de tre stora ramverkens webbplatser bestämde jag mig för att använda mig av Angular i den här kursen. Anledningen till att valet föll just på Angular är bl a att de flesta jobbannonser jag stött på är ju ute efter folk som kan Angular. En annan påverkande faktor är att jag har två nära kompisar som är programmerare och båda arbetar med Angular. Dessutom fick jag höra att Angular har den brantaste inlärningskurvan av de tre stora ramverken och jag tog det som en utmaning.</p>
-<p>Den här veckan gällde det att fräscha upp minnet om hur Github fungerar. Jag är väldigt grön när det gäller versionshantering så jag uppskattar det att vi är tvungna att jobba med git.</p>
-<p>Den här veckan har jag också gjort min allra första pull request. Jag gick igenom kursrepots exempelkod för miniräknaren i Angular och upptäckte att två av funktionerna (nämligen <code>divide()</code> och <code>subtract()</code>) inte fungerade som tänkt. <code>divide()</code> returnerade resultatets reciproka värde, medan <code>subtract()</code> returnerade resultatet gånger -1. För att lösa detta gällde det att byta på argumentens inbördes ordning.</p>
-<p>För att komma igång med Angular har jag tittat på <a href="https://angular.io/guide/router-tutorial">vissa delar </a> av ramverkets officella dokumentation samt <a href="https://www.youtube.com/watch?v=Fdf5aTYRW0E">denna</a> och <a href="https://www.youtube.com/watch?v=rAy_3SIqT-E">denna</a> video av Traversy Media. TypeScript var också helt nytt för mig. Jag giller det här att det är ett optionellt superset över JavaScript. Man kan köra vanligt JS om man vill, men möjligheten finns att pröva något nytt.</p>
-<p>Det är väldigt bra att få jobba med avancerade teknologier som används i industrin. Det är inte helt omöjligt att hitta jobb om ett år känns det som.</p> -->
+<!-- <a href="reports#kmom01">Kmom01</a> |
+<a href="reports#kmom02">Kmom02</a> |
+<a href="reports#kmom03">Kmom03</a> |
+<a href="reports#kmom04">Kmom04</a> |
+<a href="reports#kmom05">Kmom05</a> |
+<a href="reports#kmom06">Kmom06</a> |
+<a href="reports#kmom10">Kmom10</a>
+ -->
+<form>
+    Här kan du läsa om:<br>
+    <input type="radio" name="reportPage" [(ngModel)]="reportPage" value="kmom01">Kmom01
+    <input type="radio" name="reportPage" [(ngModel)]="reportPage" value="kmom02">Kmom02
+    <input type="radio" name="reportPage" [(ngModel)]="reportPage" value="kmom03">Kmom03
+    <input type="radio" name="reportPage" [(ngModel)]="reportPage" value="kmom04">Kmom04
+    <input type="radio" name="reportPage" [(ngModel)]="reportPage" value="kmom05">Kmom05
+    <input type="radio" name="reportPage" [(ngModel)]="reportPage" value="kmom06">Kmom06
+    <input type="radio" name="reportPage" [(ngModel)]="reportPage" value="kmom10">Kmom10
+</form>
 
-<h1>Redovisning för kmom02</h1>
-<p>{{ adat_02.report }}</p>
+<div [ngSwitch]="reportPage">
+    <div *ngSwitchCase="'kmom01'">
+        <h2 id="kmom01">Redovisning för kmom01</h2>
+        <p>{{ adat_01.report }}</p>
+    </div>
+    <div *ngSwitchCase="'kmom02'">
+        <h2 id="kmom02">Redovisning för kmom02</h2>
+        <p>{{ adat_02.report }}</p>
+    </div>
+    <div *ngSwitchCase="'kmom03'">
+        <h2 id="kmom03">Redovisning för kmom03</h2>
+        <p>{{ adat_03.report }}</p>
+    </div>
+    <div *ngSwitchCase="'kmom04'">
+        <h2 id="kmom04">Redovisning för kmom04</h2>
+        <p>{{ adat_04.report }}</p>
+    </div>
+    <div *ngSwitchCase="'kmom05'">
+        <h2 id="kmom05">Redovisning för kmom05</h2>
+        <p>{{ adat_05.report }}</p>
+    </div>
+    <div *ngSwitchCase="'kmom06'">
+        <h2 id="kmom06">Redovisning för kmom06</h2>
+        <p>{{ adat_06.report }}</p>
+    </div>
+    <div *ngSwitchCase="'kmom10'">
+        <h2 id="kmom10">Redovisning för kmom10</h2>
+        <p>{{ adat_10.report }}</p>
+    </div>
+</div>
 
-<h1>Redovisning för kmom03</h1>
-<p>{{ adat_03.report }}</p>
+<hr>
+<p>Projektets githubrepo hittar du <a href="https://github.com/ahonson/jsramverk-frontend" target="_blank">här</a>.</p>
