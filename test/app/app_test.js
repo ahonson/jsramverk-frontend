@@ -14,12 +14,12 @@ browser.get("http://localhost:4200/about");
 
 // Two different ways to work with promises
 // Way 1
-let promise = browser.getTitle();
-
-promise.then(function(title) {
-    console.log(title);
-    console.log("--------------------------");
-});
+// let promise = browser.getTitle();
+//
+// promise.then(function(title) {
+//     console.log(title);
+//     console.log("--------------------------");
+// });
 
 // Way 2
 browser.getTitle().then(function( title ) {
