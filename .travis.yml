@@ -1,23 +1,11 @@
-dist: trusty
-sudo: false
-
 language: node_js
 node_js:
   - "node"
   - "10"
 
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+sudo: false
 
-cache:
-  directories:
-     - ./node_modules
-
-install:
+before_script:
   - npm install
 
 script:
