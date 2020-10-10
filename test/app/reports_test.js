@@ -48,14 +48,14 @@ test.describe("MeAppNg", function() {
     });
 
     test.it("Test changing report", function(done) {
-        browser.findElement(By.xpath("//input[@value='kmom03']")).then(function(element) {
+        browser.findElement(By.xpath("//input[@value='kmom01']")).then(function(element) {
             element.click();
         });
 
         // Check correct heading
         browser.findElement(By.css("h2")).then(function(element) {
             element.getText().then(function(text) {
-                assert.equal(text, "Redovisning för kmom03");
+                assert.equal(text, "Redovisning för kmom01");
             });
         });
         done();
