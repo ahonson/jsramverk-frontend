@@ -18,7 +18,7 @@ test.describe("MeAppNg", function() {
         browser = new webdriver.Builder().
             withCapabilities(webdriver.Capabilities.firefox()).build();
 
-        browser.get("http://localhost:4200/about");
+        browser.get("https://mothermarycomesto.me/about");
         done();
     });
 
