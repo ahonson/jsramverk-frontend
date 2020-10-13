@@ -1,0 +1,17 @@
+<main ng-app="myApp" ng-controller="myCtrl">
+
+    <h1>Välkommen till vår chatt!</h1>
+
+    <h2>Meddelanden</h2>
+    <div id="all-messages" class="all-messages">
+        <p *ngFor="let message of messages">
+            {{message}}
+        </p>
+    </div>
+
+
+    <p><strong>Skriv ett nytt meddelande:</strong></p>
+    <!-- <input id="new-message" class="new-message" value="" [(ngModel)]="message"/> -->
+    <input id="new-message" class="new-message" [(ngModel)]="message" (keyup)="$event.keyCode == 13 && sendMessage()" />
+    <button (click)="sendMessage()">Send</button>
+</main>

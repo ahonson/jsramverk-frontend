@@ -10,6 +10,8 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
 import { CrudComponent } from './crud/crud.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChatService } from './chat.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { CrudComponent } from './crud/crud.component';
     AboutMeComponent,
     PageNotFoundComponent,
     LoginComponent,
-    CrudComponent
+    CrudComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -29,11 +32,12 @@ import { CrudComponent } from './crud/crud.component';
       {path: 'reports', component: ReportsComponent},
       {path: 'login', component: LoginComponent},
       {path: 'crud', component: CrudComponent},
+      {path: 'chat', component: ChatComponent},
       {path: '', redirectTo: '/about', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent} // this route has to come last
     ]),
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
