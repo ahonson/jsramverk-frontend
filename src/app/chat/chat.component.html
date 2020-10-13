@@ -9,9 +9,52 @@
         </p>
     </div>
 
+    <!-- <div id="all-messages" class="all-messages">
+        <div *ngFor="let message of messages">
+            <div *ngIf="message.includes(' anslöt sig till chatten kl ')">
+                <p class="black">
+                    {{message}}
+                </p>
+            </div>
+            <div *ngIf="message.name == user">
+                <p class="grey">
+                    {{message}}
+                    aaaa
+                </p>
+            </div>
+            <div *ngIf="message.name !== user && !message.includes(' anslöt sig till chatten kl ')">
+                <p class="lightgrey">
+                    {{message}}
+                    cvbcbcv
+                </p>
+            </div>
+            <div *ngIf="message.includes(']' + user + 'skrev')">
+                <p class="grey">
+                    {{message}}
+                </p>
+            </div>
+            <div *ngIf="!message.includes(']' + user + 'skrev') && !message.includes('anslöt sig till chatten kl')">
+                <p class="lightgrey">
+                    {{message}}
+                </p>
+            </div>
+        </div>
+    </div> -->
 
-    <p><strong>Skriv ett nytt meddelande:</strong></p>
-    <!-- <input id="new-message" class="new-message" value="" [(ngModel)]="message"/> -->
-    <input id="new-message" class="new-message" [(ngModel)]="message" (keyup)="$event.keyCode == 13 && sendMessage()" />
-    <button (click)="sendMessage()">Send</button>
+    <div [ngSwitch]="chatPage">
+        <div *ngSwitchCase="'user'">
+            <p><strong>Mata in ditt användarnamn och tryck Enter:</strong></p>
+            <!-- <input id="new-message" class="new-message" value="" [(ngModel)]="message"/> -->
+            <input id="new-message" class="new-message" [(ngModel)]="user" (keyup)="$event.keyCode == 13 && getUser()" autofocus />
+            <!-- <button (click)="sendMessage()">Send</button> -->
+        </div>
+        <div *ngSwitchCase="'msg'">
+            <p><strong>Hej {{ user }}! Skriv ett nytt meddelande och tryck Enter:</strong></p>
+            <!-- <input id="new-message" class="new-message" value="" [(ngModel)]="message"/> -->
+            <input id="new-message" class="new-message" [(ngModel)]="message" (keyup)="$event.keyCode == 13 && sendMessage()" autofocus />
+            <!-- <button (click)="sendMessage()">Send</button> -->
+            <a href="/chat">Logga ut från chatten</a>
+        </div>
+    </div>
+
 </main>
