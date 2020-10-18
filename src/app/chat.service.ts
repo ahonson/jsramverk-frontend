@@ -31,4 +31,12 @@ export class ChatService {
             });
         });
     }
+
+    public earlierMessages = () => {
+        return Observable.create((observer) => {
+            this.socket.on('earlier chat', (message) => {
+                observer.next(message);
+            });
+        });
+    }
 }

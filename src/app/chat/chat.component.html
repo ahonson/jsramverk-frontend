@@ -4,6 +4,9 @@
 
     <h2>Meddelanden</h2>
     <div id="all-messages" class="all-messages">
+        <p *ngFor="let message of earlierMessages">
+            {{message}}
+        </p>
         <p *ngFor="let message of messages">
             {{message}}
         </p>
